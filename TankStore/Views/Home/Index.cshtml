@@ -1,0 +1,47 @@
+﻿@using TankStore.Models;
+@model IEnumerable<Tank>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tank store</h2>
+<div id="divCash"></div>
+<input type="hidden" id="Cash" value="@ViewBag.ClientCash" />
+@using (Html.BeginForm("Buy", "Client", FormMethod.Post)) {
+    <table align="center" class="fullTable">
+        <tr>
+            <th><p>Tank</p></th>
+            <th><p>Country</p></th>
+            <th><p>Cost</p></th>
+            <th><p>Available</p></th>
+            <th><p>Select</p></th>
+        </tr>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @item.tankName
+                </td>
+                <td>
+                    @item.tankCountry
+                </td>
+                <td class="cost">
+                    @item.tankCost
+                </td>
+                <td class="available">
+                    @item.tankCount
+                </td>
+                <td>
+                    <input type="text" value="0" name="counts" class="inputNumber" autocomplete="off"/>
+                    <input type="hidden" value="@item.TankId" name="ids" />
+                </td>
+            </tr>
+        }
+    </table>
+    <div id="buyBtn"></div>
+}
+<div id="btnSort"></div>
+<div id="addBtn1"></div>
+<div id="addBtn2"></div>
+
+@Scripts.Render("~/Scripts/MyScripts/IndexView.js")

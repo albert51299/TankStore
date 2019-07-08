@@ -1,0 +1,45 @@
+﻿@model TankStore.Models.OneBuy
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Purchase</h2>
+<div>Count - @Model.oneBuyCount</div>
+<div class="cost">Cost - @Model.oneBuyCost</div>
+@using (Html.BeginForm("ConfirmBuying", "Client", FormMethod.Post)) {
+    <table align="center" class="partialTable">
+        <tr>
+            <th>
+                Tank
+            </th>
+            <th>
+                Count
+            </th>
+            <th>
+                Cost
+            </th>
+        </tr>
+        @foreach (var el in Model.BuyOneModels) {
+            <tr>
+                <td>@el.tankName</td>
+                <td>@el.countOfTanks</td>
+                <td>
+                    @el.summaryCost
+                    <input type="hidden" name="counts" value="@el.countOfTanks" />
+                    <input type="hidden" name="ids" value="@el.tankId" />
+                </td>
+            </tr>
+        }
+    </table>
+    <div><input type="submit" class="button" value="Confirm" /></div>
+}
+<div><input type="button" class="button" value="Cancel" id="btnCancel"/></div>
+
+<script>
+    var btnCancel = document.getElementById("btnCancel");
+    btnCancel.addEventListener("click", CancelHandler);
+
+    function CancelHandler(event) {
+        window.location.href = "/Home/Index/"
+    }
+</script>

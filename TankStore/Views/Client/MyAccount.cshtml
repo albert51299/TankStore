@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My account</h2>
+<div>Current cash - @ViewBag.UserCash</div>
+<br/>
+<div>
+    <input type="button" class="button" value="Add gold" id="btnAddGold"/>
+</div>
+<div>
+    <input type="button" class="button" value="Show buys" id="btnShowClientBuys"/>
+</div>
+<div>
+    <input type="button" class="button" value="Back" id="btnBack"/>
+</div>
+
+@Scripts.Render("~/Scripts/MyScripts/MyAccountView.js")

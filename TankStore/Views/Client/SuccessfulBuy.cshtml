@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Buy completed</h2>
+<h3 class="cost">Your current cash - @ViewBag.ClientCash</h3>
+<div><input type="button" class="button" value="Go to home page" id="ToStartPage"/></div>
+
+<script>
+    var btnHome = document.getElementById("ToStartPage");
+    btnHome.addEventListener("click", HomeHandler);
+
+    function HomeHandler(event) {
+        window.location.href = "/Home/Index/";
+    }
+</script>

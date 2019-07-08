@@ -1,0 +1,42 @@
+﻿@model TankStore.Models.Tank
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Admin", FormMethod.Post)) {
+    @Html.HiddenFor(m => m.TankId)
+    <div>
+        @Html.LabelFor(m => m.tankName, "Tank")
+        <br />
+        @Html.EditorFor(m => m.tankName)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.tankCountry, "County")
+        <br />
+        @Html.EditorFor(m => m.tankCountry)
+
+    </div>
+    <div>
+        @Html.LabelFor(m => m.tankCost, "Cost")
+        <br />
+        @Html.EditorFor(m => m.tankCost)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.tankCount, "Available")
+        <br />
+        @Html.EditorFor(m => m.tankCount)
+    </div>
+    <br />
+    <div><input type="submit" class="button" value="Update" /></div>
+}
+<div><input type="button" class="button" value="Cancel" id="btnCancel" /></div>
+
+<script>
+    var btnCancel = document.getElementById("btnCancel");
+    btnCancel.addEventListener("click", CancelHandler);
+
+    function CancelHandler(event) {
+        window.location.href = "/Admin/ControlPanel/";
+    }
+</script>

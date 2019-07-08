@@ -1,0 +1,63 @@
+﻿@font-face {
+    font-family: 'myFont';
+    src: url(/fonts/11970.ttf);
+}
+
+* {
+    font-family: myFont;
+    font-size: 20px;
+    color: whitesmoke;
+
+    align-self: center;
+    text-align: center;
+    
+    align-content: center;
+    align-items: center;
+}
+
+body {
+    background-image: url(/Content/Images/background.jpg);
+    background-size: cover;
+}
+
+.inputNumber, input, select, a {
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    cursor: default;
+}
+
+.inputNumber {
+    width: 35px;
+    text-align: center;
+}
+
+.buttonLarge {
+    width: 190px;
+}
+
+.button {
+    width: 150px;
+}
+
+.fullTable {
+    border-spacing: 20px;
+}
+
+.partialTable {
+    border-spacing: 10px;
+}
+
+.cost::after {
+    content: " gold";
+}
+
+h2 {
+    font-size: 30px;
+}
+
+#ToStartPage {
+    width: auto;
+}

@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Account successfully created!</h2>
+<div>
+    <input type="button" class="button" value="Go to home page" id="ToStartPage"/>
+</div>
+
+<script>
+    var inputs = document.getElementsByTagName("input");
+    inputs[0].addEventListener("click", Handler);
+    function Handler(event) {
+        window.location.href = "/Home/Index/"
+    }
+</script>

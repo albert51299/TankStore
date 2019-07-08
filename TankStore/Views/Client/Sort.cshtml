@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Sort", "Client", FormMethod.Post)) {
+    <label>
+        Sort by:
+        <select name="sortBy" id="sortBy">
+            <option>default</option>
+            <option>cost</option>
+        </select>
+    </label>
+    <br />
+    <label>
+        By increase
+        <input type="radio" name="orderBy" value="byIncrease" checked />
+    </label>
+    <br />
+    <label>
+        By decrease
+        <input type="radio" name="orderBy" value="byDecrease" />
+    </label>
+    <br />
+    <input type="submit" class="button" value="Save"/>
+}
+    <input type="button" class="button" value="Back" id="btnBack" />
+
+@Scripts.Render("~/Scripts/MyScripts/SortView.js")

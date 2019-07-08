@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TankStore.Models.Tank>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Control panel</h2>
+
+<table align="center" class="fullTable">
+    <tr>
+        <th><p>Tank</p></th>
+        <th><p>Country</p></th>
+        <th><p>Cost</p></th>
+        <th><p>Available</p></th>
+        <th><p></p></th>
+    </tr>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.tankName
+            </td>
+            <td>
+                @item.tankCountry
+            </td>
+            <td class="cost">
+                @item.tankCost
+            </td>
+            <td class="available">
+                @item.tankCount
+            </td>
+            <td>
+                <a href="/Admin/Edit?id=@item.TankId">Edit</a>
+            </td>
+        </tr>
+    }
+</table>
+<div><input type="button" class="button" value="Add tank" id="btnAdd" /></div>
+<div><input type="button" class="button" value="Back" id="btnBack" /></div>
+
+<script>
+    var btnBack = document.getElementById("btnBack");
+    btnBack.addEventListener("click", BackHandler);
+
+    var btnAdd = document.getElementById("btnAdd");
+    btnAdd.addEventListener("click", AddHandler);
+
+    function BackHandler(event) {
+        window.location.href = "/Home/Index/";
+    }
+
+    function AddHandler(event) {
+        window.location.href = "/Admin/Add/";
+    }
+</script>

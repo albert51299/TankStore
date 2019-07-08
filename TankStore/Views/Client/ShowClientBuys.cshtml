@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TankStore.Models.OneBuy>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Buys history</h2>
+
+@foreach (var el in Model) {
+    <h4>Buy id - @el.Id</h4>
+    <h4 class="cost">Summary cost - @el.oneBuyCost</h4>
+    <table align="center" class="partialTable">
+        <tr>
+            <th>
+                Tank
+            </th>
+            <th>
+                Count
+            </th>
+            <th>
+                Cost
+            </th>
+        </tr>
+        @foreach (var oneModel in el.BuyOneModels) {
+            <tr>
+                <td>
+                    @oneModel.tankName
+                </td>
+                <td>
+                    @oneModel.countOfTanks
+                </td>
+                <td>
+                    @oneModel.summaryCost
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+<div><input type="button" class="button" value="Back" id="btnBack"/></div>
+
+<script>
+    var btnBack = document.getElementById("btnBack");
+    btnBack.addEventListener("click", BackHandler);
+
+    function BackHandler(event) {
+        window.location.href = "/Client/MyAccount/";
+    }
+</script>
