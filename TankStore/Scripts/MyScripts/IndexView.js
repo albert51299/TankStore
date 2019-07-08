@@ -1,4 +1,17 @@
 ﻿
+var inputs = document.getElementsByClassName("inputNumber");
+for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener("focus", FocusHandler);
+}
+
+function FocusHandler(event) {
+    this.value = "";
+}
+
+
+
+
+
 var div1 = document.getElementById("addBtn1");
 var div2 = document.getElementById("addBtn2");
 // common button for all cases
