@@ -60,6 +60,18 @@ if ((getCookie("isAdmin") == "true") || (getCookie("isClient") == "true")) { // 
 
 function BuySelectedHandler(event) {
     var elements = document.getElementsByClassName("inputNumber");
+
+    var allPosNumbers = true;
+    for (var i = 0; i < elements.length; i++) {
+        if (!isNumeric(elements[i].value) || (parseInt(elements[i].value) < 0)) {
+            allPosNumbers = false;
+        }
+    }
+    if (!allPosNumbers) {
+        alert("Not all fields filled by positive numbers");
+        event.preventDefault();
+    }
+    
     var allZero = true;
     for (var i = 0; i < elements.length; i++) {
         if (elements[i].value != 0) {
@@ -71,6 +83,7 @@ function BuySelectedHandler(event) {
         alert("No one tank selected");
         event.preventDefault();
     }
+
     var notEnough = false;
     var avElements = document.getElementsByClassName("available");
     for (var i = 0; i < elements.length; i++) {
@@ -86,6 +99,7 @@ function BuySelectedHandler(event) {
         alert("Not enough tanks in store");
         event.preventDefault();
     }
+
     var strCash = document.getElementById("Cash").value;
     var Cash = parseInt(strCash);
     var costs = document.getElementsByClassName("cost");
