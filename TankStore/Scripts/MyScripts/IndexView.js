@@ -99,6 +99,10 @@ function BuySelectedHandler(event) {
     }
 }
 
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 // return cookie with specified name or undefined
 function getCookie(name) {
     var matches = document.cookie.match(new RegExp(
