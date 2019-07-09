@@ -7,36 +7,32 @@
 @using (Html.BeginForm("Edit", "Admin", FormMethod.Post)) {
     @Html.HiddenFor(m => m.TankId)
     <div>
-        @Html.LabelFor(m => m.tankName, "Tank")
-        <br />
-        @Html.EditorFor(m => m.tankName)
+        <label>
+            Tank:
+            <input type="text" name="tankName" id="tankName" value="@Model.tankName" autocomplete="off"/>
+        </label>
     </div>
     <div>
-        @Html.LabelFor(m => m.tankCountry, "County")
-        <br />
-        @Html.EditorFor(m => m.tankCountry)
-
+        <label>
+            Country:
+            <input type="text" name="tankCountry" id="tankCountry" value="@Model.tankCountry" autocomplete="off"/>
+        </label>
     </div>
     <div>
-        @Html.LabelFor(m => m.tankCost, "Cost")
-        <br />
-        @Html.EditorFor(m => m.tankCost)
+        <label>
+            Cost:
+            <input type="text" name="tankCost" id="tankCost" value="@Model.tankCost" autocomplete="off"/>
+        </label>
     </div>
     <div>
-        @Html.LabelFor(m => m.tankCount, "Available")
-        <br />
-        @Html.EditorFor(m => m.tankCount)
+        <label>
+            Available:
+            <input type="text" name="tankCount" id="tankCount" value="@Model.tankCount" autocomplete="off"/>
+        </label>
     </div>
     <br />
     <div><input type="submit" class="button" value="Update" /></div>
 }
 <div><input type="button" class="button" value="Cancel" id="btnCancel" /></div>
 
-<script>
-    var btnCancel = document.getElementById("btnCancel");
-    btnCancel.addEventListener("click", CancelHandler);
-
-    function CancelHandler(event) {
-        window.location.href = "/Admin/ControlPanel/";
-    }
-</script>
+@Scripts.Render("~/Scripts/MyScripts/AdminPostRequests.js")
