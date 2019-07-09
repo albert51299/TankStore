@@ -5,7 +5,6 @@
 }
 
 @using (Html.BeginForm("Add", "Admin", FormMethod.Post)) {
-    @Html.HiddenFor(m => m.TankId)
     <div>
         @Html.LabelFor(m => m.tankName, "Tank")
         <br />
@@ -32,11 +31,4 @@
 }
 <div><input type="button" class="button" value="Cancel" id="btnCancel" /></div>
 
-<script>
-    var btnCancel = document.getElementById("btnCancel");
-    btnCancel.addEventListener("click", CancelHandler);
-
-    function CancelHandler(event) {
-        window.location.href = "/Admin/ControlPanel/";
-    }
-</script>
+@Scripts.Render("~/Scripts/MyScripts/AddView.js")
