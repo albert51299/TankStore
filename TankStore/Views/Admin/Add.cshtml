@@ -6,25 +6,28 @@
 
 @using (Html.BeginForm("Add", "Admin", FormMethod.Post)) {
     <div>
-        @Html.LabelFor(m => m.tankName, "Tank")
-        <br />
-        @Html.EditorFor(m => m.tankName)
+        <label>
+            Tank: 
+            <input type="text" name="tankName" id="tankName" autocomplete="off"/>
+        </label>
     </div>
     <div>
-        @Html.LabelFor(m => m.tankCountry, "County")
-        <br />
-        @Html.EditorFor(m => m.tankCountry)
-
+        <label>
+            Country:
+            <input type="text" name="tankCountry" id="tankCountry" autocomplete="off"/>
+        </label>
     </div>
     <div>
-        @Html.LabelFor(m => m.tankCost, "Cost")
-        <br />
-        @Html.EditorFor(m => m.tankCost)
+        <label>
+            Cost:
+            <input type="text" name="tankCost" id="tankCost" autocomplete="off" />
+        </label>
     </div>
     <div>
-        @Html.LabelFor(m => m.tankCount, "Available")
-        <br />
-        @Html.EditorFor(m => m.tankCount)
+        <label>
+            Available:
+            <input type="text" name="tankCount" id="tankCount" autocomplete="off" />
+        </label>
     </div>
     <br />
     <div><input type="submit" class="button" value="Add" /></div>

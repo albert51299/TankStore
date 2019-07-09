@@ -7,7 +7,8 @@ function SubmitHandler(event) {
     var country = document.getElementById("tankCountry");
     var cost = document.getElementById("tankCost");
     var count = document.getElementById("tankCount");
-    if ((name.value == "") || (country.value == "") || (parseInt(cost.value) <= 0) || (parseInt(count.value) < 0)) {
+    if ((name.value == "") || (country.value == "") || (parseInt(cost.value) <= 0) || (parseInt(count.value) < 0)
+        || (!isNumeric(cost.value)) || (!isNumeric(count.value))) {
         alert("Incorrect data");
         event.preventDefault();
     }
